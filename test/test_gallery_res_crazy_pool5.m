@@ -1,7 +1,7 @@
 % In this file, we densely extract the feature
 % It's similar to the 10-crop in the ResNet Paper.
 clear;
-netStruct = load('../data/res52_baseline_batch8_fc512_all_small_init/net-epoch-40.mat');
+netStruct = load('../data/res52_baseline_batch8_fc512_all/net-epoch-40.mat');
 %--------add norm
 net = dagnn.DagNN.loadobj(netStruct.net);
 net.addLayer('lrn_test',dagnn.LRN('param',[4096,0,1,0.5]),{'pool5'},{'pool5n'},{});
