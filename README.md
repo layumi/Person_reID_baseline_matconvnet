@@ -16,14 +16,21 @@ Matconvnet implement of Person re-identification baseline. We arrived Rank@1=87.
 
 	If you fail in compilation, you may refer to http://www.vlfeat.org/matconvnet/install/
 
-## Test 
-1. After installation, you can run `test/test_duke.m` to extract the features of images in the gallery and query set. They will store in a .mat file. Then you can use it to do evaluation.
-
-2. 
-
 
 ## Train
 1. Add your dataset path into `prepare_data.m` and run it. Make sure the code outputs the right image path.
 
-2. Run `train_id_net_.m` to have fun.
+2. Download the he model pre-trained on ImageNet. And put the model into './data'.
+```
+(bash) wget http://www.vlfeat.org/matconvnet/models/imagenet-resnet-50-dag.mat
+```
+
+3. Run `train_id_net_res_market_baseline.m`.
+
+
+
+## Test 
+1. After training, you can run `test/test_gallery_res_crazy_pool5.m` to extract the features of images in the gallery and query set. They will store in a .mat file. Then you can use it to do evaluation.
+
+2. run `baseline/zzd_evaluation_res_faster.m` to get the final result.
 
