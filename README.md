@@ -20,7 +20,7 @@ Matconvnet implement of Person re-identification baseline. We arrived Rank@1=87.
 ## Train
 1. Add your dataset path into `prepare_data.m` and run it. Make sure the code outputs the right image path.
 
-2. Download the he model pre-trained on ImageNet. And put the model into './data'.
+2. Download the model pre-trained on ImageNet. And put the model into './data'.
 ```
 (bash) wget http://www.vlfeat.org/matconvnet/models/imagenet-resnet-50-dag.mat
 ```
