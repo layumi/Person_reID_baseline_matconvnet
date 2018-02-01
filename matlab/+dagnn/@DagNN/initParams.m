@@ -64,13 +64,13 @@ for l = 1:numel(obj.layers)
     end
     [obj.params(p).value] = deal(params{:}) ;
     if(isequal(class(obj.layers(l).block),'dagnn.Conv'))
-        [obj.params(p(1)).learningRate]=.01;
+        [obj.params(p(1)).learningRate]=0.01;
         [obj.params(p(1)).trainMethod] = 'gradient';
         if(obj.layers(l).block.hasBias)
             [obj.params(p(2)).learningRate]=0.2;
             [obj.params(p(2)).trainMethod] = 'gradient';
         end
-        if(l<numel(obj.layers) && ~contains(class(obj.layers(l+1).block),'Loss'))
+        if(l<numel(obj.layers) && contains(class(obj.layers(l+1).block),'Loss'))
             [obj.params(p(1)).learningRate]= 0.01;
             if(obj.layers(l).block.hasBias)
                 [obj.params(p(2)).learningRate]= 0.02;
